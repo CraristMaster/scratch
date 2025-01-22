@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style type="text/css">
+body {
+    background-color: grey; 
+}
+
+body #img {
+    padding: 0px;
+    margin: 4px;
+    width: 350px;
+    height: auto;
+    border-radius: 10px 9px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation for image */
+}
+
+body #img:hover {
+    transform: scale(1.05); /* Scale up on hover */
+    text-shadow: 5px blue; 
+    cursor: zoom-in;
+    box-shadow: 0 4px 20px rgba(0, 0, 255, 0.5); /* Add shadow on hover */
+}
+
+body .submit {
+    cursor: pointer;
+    background-color: white;
+    color: green;
+    border-radius: 5px;
+    padding: 3px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Animation for buttons */
+}
+
+body .submit:hover {
+    background-color: silver;
+    color: powderblue;
+}
+
+body a {
+    text-decoration: none;
+}
+
+body a:hover {
+    text-shadow: 2px 3px 4px lightblue;
+}
+
+h1 {
+    text-align: center; 
+    text-shadow: 3px 5px 6px gold;
+    animation: fadeIn 1s ease; /* Animation for the heading */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.letter {
+    display: inline-block; /* Allow individual letter animation */
+    animation: bounce 0.6s ease forwards;
+    opacity: 0; /* Start hidden */
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+</style>
+</head>
+<body>
+<a href="index.html">home</a>
+<a href="about us.html">about us</a>
+<a href="service.html">service</a>
+<a href="help us.html">help us</a>
+<a href="contacts us.html">contacts us</a><br><br>
+
+<h1>
+    <span class="letter" style="animation-delay: 0.1s;">W</span>
+    <span class="letter" style="animation-delay: 0.2s;">E</span>
+    <span class="letter" style="animation-delay: 0.3s;">L</span>
+    <span class="letter" style="animation-delay: 0.4s;">C</span>
+    <span class="letter" style="animation-delay: 0.5s;">O</span>
+    <span class="letter" style="animation-delay: 0.6s;">M</span>
+    <span class="letter" style="animation-delay: 0.7s;">E</span>
+    <span class="letter" style="animation-delay: 0.8s;"> </span>
+    <span class="letter" style="animation-delay: 0.9s;">T</span>
+    <span class="letter" style="animation-delay: 1.0s;">O</span>
+    <span class="letter" style="animation-delay: 1.1s;"> </span>
+    <span class="letter" style="animation-delay: 1.2s;">T</span>
+    <span class="letter" style="animation-delay: 1.3s;">E</span>
+    <span class="letter" style="animation-delay: 1.4s;">C</span>
+    <span class="letter" style="animation-delay: 1.5s;">H</span>
+    <span class="letter" style="animation-delay: 1.6s;"> </span>
+    <span class="letter" style="animation-delay: 1.7s;">W</span>
+    <span class="letter" style="animation-delay: 1.8s;">E</span>
+    <span class="letter" style="animation-delay: 1.9s;">B</span>
+    <span class="letter" style="animation-delay: 2.0s;">S</span>
+    <span class="letter" style="animation-delay: 2.1s;">I</span>
+    <span class="letter" style="animation-delay: 2.2s;">T</span>
+    <span class="letter" style="animation-delay: 2.3s;">E</span>
+</h1>
+
+<img src="/home/student_real1/Desktop/hekimafile/pexels-sanketgraphy-17894356.jpg" alt="" id="img">
+<img src="/home/student_real1/Desktop/hekimafile/pexels-florian-holly-2584321-6308163.jpg" alt="" id="img">
+<img src="/home/student_real1/Desktop/hekimafile/pexels-divinetechygirl-1181354.jpg" alt="" id="img">
+<img src="/home/student_real1/Desktop/hekimafile/pexels-joshsorenson-1714208.jpg" alt="" id="img">
+<img src="/home/student_real1/Desktop/hekimafile/pexels-field-engineer-147254-442150.jpg" alt="" id="img">
+<img src="/home/student_real1/Desktop/hekimafile/pexels-markusspiske-113850.jpg" alt="" id="img">
+<img src="/home/student_real1/Desktop/hekimafile/pexels-sanketgraphy-17894356.jpg" alt="" id="img">
+<img src="/home/student_real1/Desktop/hekimafile/pexels-tima-miroshnichenko-5380618.jpg" alt="" id="img">
+<img src="/home/student_real1/Desktop/hekimafile/pexels-sanketgraphy-17894357.jpg" alt="" id="img"><br><br>
+<input type="submit" value="add" class="submit">
+<input type="submit" value="delete" class="submit">
+<input type="submit" value="reset" class="submit">
+
+</body>
+</html>
