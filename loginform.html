@@ -2,15 +2,75 @@
 <html lang="en">
 <head>
 <title>log in</title>
+<style>
+h1{
+text-align: center;
+}
+.main_wrappper{
+display: flex;
+background-color: #061010;
+margin-left: 10%;
+}
+body{
+background-color: grey;
+}
+form{
+display: flex;
+justify-content: center;
+flex-direction: column;
+background-color: #D3E1C5;
+box-shadow: 2px 3px 2px #444643;
+width: 50%;
+height: 15%;
+border-radius: 10px;
+padding: 30px;
+margin-left: 20%;
+margin-top: 5%;
+}
+label{
+padding: 0px;
+margin: 10px;
+font-weight: 600;
+margin-left: 20%;
+}
+ button{
+width: 50%;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 40px;
+padding: 20px;
+outline: none;
+border: 1px solid black;
+border-radius: 30px;
+margin-top: 10px;
+margin-left: 20%;
+}
+form > input{
+outline: none;
+border: 1px solid black;
+padding:  10px;
+height: 15%;
+width: 50%;
+border-radius: 20px;
+margin-left: 20%;
+}
+span{
+margin-left: 20%;
+text-decoration: none;
+}
+</style>
 </head>
 <body>
+<div class="main_wrapper">
+<form method="loginform.html" action="post">
 <h1>Log in Form</h1>
-<form method="post">
 <label>Username:</label>
-<input type="text" name="username" placeholder="username"><br><br>
+<input type="text" name="username" placeholder="username" required=""><br><br>
 <label>Password:</label>
-<input type="password" name="password" placeholder="..............."><br><br>
-<button value="submit">submit</button><br><br>
+<input type="password" name="password" placeholder="..............." required=""><br><br>
+<button value="submit">submit</button><br>
+</div>
 <span>
-Dont have an account?<a href="scratch.html" >log in</a>
+Dont have an account?<a href="newform.html" >sign up</a>
 </span>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registationform</title>
+<style>
+body{
+background-color: grey;
+}
+.form_container{
+background:  #D3E1C5;
+width: 50%;
+border-radius: 20px;
+margin-left: 20%;
+}
+h1{
+color: darkgreen;
+text-align: center;
+color: gold;
+font-size: 30px;
+padding: 10px;
+}
+.form_content{
+width: 80%;
+padding: 30px;
+margin-left: 20%;
+}
+form{
+display: flex;
+justify-content: center;
+flex-direction: column;
+}
+input{
+width: 50%;
+height: 50px;
+outline: none;
+margin: 5px;
+border: 1px solid black;
+border-radius: 10px;
+}
+label{
+color: black;
+text-transform: uppercase;
+font-size: 16px;
+font-weight: bold;
+padding: 10px;
+}
+button{
+width: 50%;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 3px;
+padding: 20px;
+outline: none;
+border: 1px solid black;
+border-radius: 30px;
+ margin-top: 10px;
+}
+span{
+margin-left: 21%;
+}
+</style>
+</head>
+<body>
+<div class="form_container">
+<h1> Registration Form</h1>
+<div class="form_content">
+<form action="design.html" method="post">
+<label for="name"> Username</label>
+<input type="text" name="name"id="name" placeholder="Enter your Full Name" required>
+<label for="email"> Email</label>
+ <input type="email"name="email" id="email" placeholder="Enter your Email" required="">
+<label for="password"> Password</label>
+<input type="password" name="password" id="password" placeholder="*****" required="">
+<button type="submit">Submit</button>
+ </form>
+</div>
+</div>
+<span>
+have an account?<a href="loginform.html">sign in</a>
+</span>
+</body>
+</html>
