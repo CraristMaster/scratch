@@ -1,0 +1,1 @@
+document.write("i am fatest programmer in the world").style.color='red';
