@@ -1,0 +1,1 @@
+document.getElementById("hetas").innerHTML=" i'm still learning javascript programmint language";
