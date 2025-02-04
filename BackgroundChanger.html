@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<title>MyFunction</title>
+<style>
+body{
+background-image: url(/home/student_real1/Desktop/hekima/pexels-souvenirpixels-417074.jpg);
+backface-visibility: visible;
+background-size: 100%;
+font-family: sans-serif;
+}
+h1{
+text-align: center;
+color: darkgreen;
+}
+.wrapper{
+margin-left: 30px;
+margin-top: 33%;
+border-radius:60px;
+box-shadow: 2px 3px 2px #BABDB6;
+background-image: url(/home/student_real1/Desktop/hekima/pexels-markusspiske-1089438.jpg);
+padding: 10px;
+width: 7%;
+height: 40%;
+border:2px 3px 2px groove gold;
+}
+.button{
+padding:10px;
+border-radius: 10px;
+margin-left: 5px;
+color: white;
+background-image: url(/home/student_real1/Desktop/hekima/pexels-markusspiske-1089438.jpg);
+}
+</style>
+</head>
+<body id="bg">
+<h1>function in javascript</h1>
+<span id="ones"></span>
+<div class="wrapper">
+<button onclick="changebackground()" class="button">click here</button>
+</div>
+<script>
+function changebackground() {
+alert('this is year 2025');
+	document.getElementById("bg").style.backgroundImage="url(/home/student_real1/Desktop/hekima/pexels-chiecharon-672451.jpg)";
+	document.body.style.color="white";
+}
+</script>
