@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<title>show_result</title>
+<style>
+body{
+background-image: url(/home/student_real1/Desktop/hekima/pexels-souvenirpixels-417074.jpg); 
+background-size: cover;
+}
+h1{
+text-align: center;
+color: white;
+font-weight: 600;
+}
+#num{
+font-size: 40px;
+border-bottom: 2px solid black;
+width: 5%;
+text-shadow: 2px 3px 4px blue;
+}
+button{
+padding:10px;
+outline: none;
+border:2px solid black;
+border-radius: 5px;
+box-shadow: 2px 3px 2px blue;
+font-family: sans-serif;
+font-weight: 600;
+}
+</style>
+</head>
+<body id="kbg">
+<h1>welcome in javascript world!</h1>
+
+<div id="num">click to show result</div><br>
+<span id="text"></span>
+<div class="free">
+<button type="button" onclick="showalert()">click me</button>
+<button onclick="wrote()">click me</button>
+<button onclick="inner()">click me</button>
+<button onclick="bg()">background image changer</button><br><br>
+<button onclick="bgcolor()">background color changer</button>
+</div>
+<script>
+function showdef(n1,n2) {
+	return n1+n2;
+}
+let numbers=showdef(56,44);
+document.getElementById("num").innerHTML=numbers;
+function bg() {
+alert("suprise!");
+	document.getElementById("kbg").style.backgroundImage="url(/home/student_real1/Desktop/hekima/pexels-chiecharon-672451.jpg)";
+}
+function bgcolor() {
+alert("suprise");
+	document.body.style.backgroundColor="gold";
+}
+function showalert() {
+	alert('this is our beatifull country!');
+}
+function inner() {
+	document.getElementById("text").innerHTML="let just continue to click all button.";
+}
+function wrote() {
+	document.write("sorry for htis mistakes please just refresh your browser to see changes.");
+}
+</script>
+</body>
+</html>
