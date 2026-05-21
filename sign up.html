@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(22, 44, 88, 0.9), rgba(6, 15, 48, 0.95)),
+                        url('https://images.unsplash.com/photo-1504805572947-34fad45aed93?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        .signup-card {
+            width: min(420px, 95vw);
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+            padding: 36px 32px;
+        }
+
+        .signup-card h1 {
+            margin: 0 0 18px;
+            font-size: 1.95rem;
+            letter-spacing: 0.02em;
+            text-align: center;
+        }
+
+        .signup-card p {
+            margin: 0 0 26px;
+            color: rgba(255, 255, 255, 0.78);
+            text-align: center;
+            line-height: 1.55;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        input:focus {
+            border-color: rgba(255, 255, 255, 0.7);
+            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.08);
+        }
+
+        .button {
+            width: 100%;
+            padding: 14px 16px;
+            border: none;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.22);
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .button:hover {
+            background: rgba(255, 255, 255, 0.35);
+            transform: translateY(-1px);
+        }
+
+        .help-text {
+            margin-top: 16px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.72);
+            font-size: 0.92rem;
+        }
+
+        .help-text a {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 420px) {
+            .signup-card {
+                padding: 28px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="signup-card">
+        <h1>Create Your Account</h1>
+        <p>Sign up with your email to get started with the best experience.</p>
+
+        <form action="#" method="post">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Jane Doe" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="jane@example.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Create a password" required>
+            </div>
+
+            <button type="submit" class="button">Sign Up</button>
+        </form>
+
+        <p class="help-text">Already have an account? <a href="#">Sign in</a></p>
+    </section>
+</body>
+</html>

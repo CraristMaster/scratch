@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mount Kilimanjaro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #8b6f47 0%, #3d3428 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="mountain" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse"><path d="M 0 150 L 100 50 L 200 150" stroke="rgba(255,255,255,0.05)" stroke-width="2" fill="none"/></pattern></defs><rect width="1200" height="600" fill="url(%23mountain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header h1 {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+
+        .header p {
+            font-size: 18px;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: -40px auto 0;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .intro-card {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .intro-card h2 {
+            color: #8b6f47;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .intro-card p {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border-left: 5px solid #8b6f47;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h3 {
+            color: #8b6f47;
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .stat-box {
+            background: linear-gradient(135deg, #8b6f47 0%, #a0845c 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-box .number {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .stat-box .label {
+            font-size: 12px;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-section {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 40px;
+        }
+
+        .footer-section h2 {
+            color: #8b6f47;
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .footer-section p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 60px 20px;
+            }
+
+            .header h1 {
+                font-size: 36px;
+            }
+
+            .header p {
+                font-size: 16px;
+            }
+
+            .intro-card {
+                padding: 25px;
+            }
+
+            .card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <h1>Mount Kilimanjaro</h1>
+            <p>The Peak of Africa</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="intro-card">
+            <h2>Overview</h2>
+            <p>Mount Kilimanjaro, also known as "Kili," is the highest mountain in Africa with a height of approximately 5,895 meters (19,341 feet) above sea level. This majestic volcano has captivated explorers, adventurers, and nature enthusiasts for centuries, standing as a testament to nature's grandeur.</p>
+        </div>
+
+        <div class="stat-grid">
+            <div class="stat-box">
+                <div class="number">5,895m</div>
+                <div class="label">Peak Elevation</div>
+            </div>
+            <div class="stat-box">
+                <div class="number">1865</div>
+                <div class="label">Named Year</div>
+            </div>
+            <div class="stat-box">
+                <div class="number">60 km</div>
+                <div class="label">Base Diameter</div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="card">
+                <h3>🏔️ Historical Significance</h3>
+                <p>Mount Kilimanjaro was discovered and named by European missionaries, with Johan Rebmann being credited with reaching the mountain in 1848 and documenting his findings in 1865. The mountain holds deep cultural significance for the indigenous Chagga people.</p>
+            </div>
+
+            <div class="card">
+                <h3>🌍 Geography</h3>
+                <p>Located in northeastern Tanzania near the Kenyan border, Kilimanjaro is a dormant volcano composed of three volcanic cones: Kibo, Mawenzi, and Shira. Its location in the equatorial region makes it one of the world's most unique climatic zones.</p>
+            </div>
+
+            <div class="card">
+                <h3>❄️ Climate Zones</h3>
+                <p>The mountain features five distinct ecological zones, ranging from tropical rainforest at the base to the Alpine desert and Arctic snowfields near the summit. This diversity creates varied habitats and breathtaking landscapes.</p>
+            </div>
+        </div>
+
+        <div class="footer-section">
+            <h2>Why Visit?</h2>
+            <p>Climbing Mount Kilimanjaro is a bucket-list experience for adventure seekers worldwide. The trek offers not only a physical challenge but also an opportunity to witness stunning natural beauty, diverse wildlife, and the inspiring achievement of reaching Africa's highest peak. Whether you're an experienced climber or a determined beginner, Kilimanjaro welcomes adventurers of all levels.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanisa Halisi La Muumba - Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Open+Sans:wght@300;400;600;700&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary-dark: #1a3a5c;
+            --primary-medium: #2c5f8a;
+            --primary-light: #3a7ab5;
+            --accent-gold: #c9a84c;
+            --text-dark: #2d2d2d;
+            --text-medium: #555;
+            --bg-light: #f5f5f0;
+            --bg-white: #ffffff;
+            --bg-footer: #4a6b7a;
+        }
+
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4 { font-family: 'Cinzel', serif; }
+        a { text-decoration: none; color: inherit; transition: all 0.3s; }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* HEADER */
+        .top-header {
+            background: linear-gradient(135deg, #1a3a5c, #2c5f8a, #1a3a5c);
+            color: white;
+            padding: 20px 0;
+            position: relative;
+        }
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .logo-section { display: flex; align-items: center; gap: 15px; }
+        .logo-icon {
+            width: 80px; height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #2c5f8a, #1a3a5c);
+            border: 3px solid var(--accent-gold);
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 0 20px rgba(201,168,76,0.4);
+            transition: all 0.4s;
+        }
+        .logo-icon:hover { transform: rotate(10deg) scale(1.05); }
+        .logo-icon i { font-size: 2rem; color: var(--accent-gold); }
+        .logo-text h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .location-text { font-size: 0.85rem; opacity: 0.85; margin-top: 5px; font-family: 'Open Sans', sans-serif; }
+        .header-info { text-align: right; }
+        .contact-bar { font-size: 0.8rem; opacity: 0.9; margin-bottom: 10px; }
+        .contact-bar span { margin: 0 8px; }
+        .contact-bar i { color: var(--accent-gold); margin-right: 4px; }
+        .separator { opacity: 0.4; }
+        .tagline {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--accent-gold);
+            letter-spacing: 3px;
+            font-size: 0.95rem;
+        }
+
+        /* NAVIGATION */
+        .main-nav {
+            background: white;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--primary-dark);
+        }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; }
+        .mobile-toggle {
+            display: none;
+            background: var(--primary-dark);
+            color: white;
+            border: none;
+            padding: 12px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+        .nav-links li { position: relative; }
+        .nav-links a {
+            display: block;
+            padding: 16px 22px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 50%;
+            width: 0; height: 3px;
+            background: var(--accent-gold);
+            transform: translateX(-50%);
+            transition: width 0.3s;
+        }
+        .nav-links a:hover::after,
+        .nav-links a.active::after { width: 80%; }
+        .nav-links a.active { background: var(--primary-dark); color: white; }
+        .nav-links a.active::after { background: var(--accent-gold); }
+        .nav-links li + li::before {
+            content: '|';
+            position: absolute;
+            left: 0; top: 50%;
+            transform: translateY(-50%);
+            color: #ddd;
+        }
+
+        /* HERO */
+        .hero-section {
+            min-height: 400px;
+            background: linear-gradient(135deg, #1a3a5c, #2c5f8a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 80px 20px;
+        }
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: -50px; left: 0; right: 0;
+            height: 100px;
+            background: var(--bg-light);
+            clip-path: polygon(0 50%, 100% 0, 100% 100%, 0 100%);
+        }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(201,168,76,0.15), transparent 70%);
+            animation: float 6s ease-in-out infinite;
+        }
+        .hero-content {
+            text-align: center;
+            color: white;
+            z-index: 2;
+            position: relative;
+            animation: fadeInUp 1s ease;
+        }
+        .hero-content h2 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 4px 8px rgba(0,0,0,0.3);
+            letter-spacing: 2px;
+        }
+        .hero-content p {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--accent-gold);
+            margin-bottom: 30px;
+            letter-spacing: 4px;
+        }
+        .hero-btn {
+            display: inline-block;
+            padding: 14px 40px;
+            border: 2px solid var(--accent-gold);
+            color: var(--accent-gold);
+            border-radius: 50px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+        .hero-btn:hover {
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(201,168,76,0.4);
+        }
+
+        /* MAIN CONTENT */
+        .main-content { padding: 80px 20px 40px; max-width: 1200px; margin: 0 auto; }
+        .content-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .content-card {
+            background: white;
+            border-radius: 12px;
+            padding: 35px 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+        .content-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-dark), var(--accent-gold), var(--primary-dark));
+        }
+        .content-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+            text-align: center;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        .title-underline {
+            width: 60px;
+            height: 3px;
+            background: var(--accent-gold);
+            margin: 0 auto 25px;
+            border-radius: 2px;
+        }
+        .greeting-text {
+            text-align: center;
+            color: var(--text-medium);
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+        .map-placeholder {
+            margin-top: 20px;
+            height: 250px;
+            background: linear-gradient(135deg, #87a96b, #6b8e4e);
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .map-placeholder::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+        .map-marker {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -100%);
+            color: #e74c3c;
+            font-size: 2.5rem;
+            text-shadow: 0 3px 6px rgba(0,0,0,0.3);
+            animation: float 2s ease-in-out infinite;
+        }
+        .map-overlay-info {
+            position: absolute;
+            bottom: 15px; left: 15px;
+            background: white;
+            padding: 12px 18px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .map-overlay-info h4 {
+            font-size: 0.75rem;
+            color: var(--primary-dark);
+            font-family: 'Open Sans', sans-serif;
+        }
+        .directions-link {
+            color: var(--primary-light);
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .schedule-content { margin-bottom: 30px; }
+        .schedule-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 15px;
+            padding: 15px;
+            background: rgba(26,58,92,0.03);
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        .schedule-item:hover {
+            background: rgba(26,58,92,0.06);
+            transform: translateX(5px);
+        }
+        .schedule-item.highlight {
+            background: rgba(201,168,76,0.08);
+            border-left: 3px solid var(--accent-gold);
+        }
+        .schedule-item i {
+            color: var(--accent-gold);
+            font-size: 1.2rem;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+        .schedule-item p { font-size: 0.9rem; color: var(--text-medium); }
+        .sub-title {
+            font-size: 1.2rem;
+            color: var(--primary-dark);
+            text-align: center;
+            margin-bottom: 10px;
+            letter-spacing: 4px;
+        }
+        .address-info { text-align: center; }
+        .address-info p {
+            font-size: 0.9rem;
+            color: var(--text-medium);
+            margin-bottom: 8px;
+        }
+        .address-info i {
+            color: var(--accent-gold);
+            margin-right: 8px;
+            width: 16px;
+        }
+        .vituo-text {
+            font-size: 0.95rem;
+            color: var(--text-medium);
+            text-align: justify;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+        .btn-primary {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--primary-dark);
+            color: white;
+            border: 2px solid var(--primary-dark);
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        .bottom-tagline {
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid rgba(26,58,92,0.1);
+        }
+        .bottom-tagline p {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--primary-dark);
+            letter-spacing: 4px;
+        }
+
+        /* TV SECTION */
+        .tv-section {
+            background: linear-gradient(135deg, #3d4f5f, #2a3d4e, #1e3040);
+            padding: 80px 20px;
+            position: relative;
+        }
+        .tv-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-gold), var(--primary-light), var(--accent-gold));
+        }
+        .tv-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .video-wrapper {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+        }
+        .video-placeholder {
+            background: linear-gradient(135deg, #8b0000, #cc0000, #8b0000);
+            aspect-ratio: 16/9;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .video-placeholder::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, rgba(0,0,0,0.3), transparent, rgba(0,0,0,0.3));
+        }
+        .video-overlay {
+            position: absolute;
+            top: 15px; left: 15px;
+            z-index: 3;
+        }
+        .channel-badge {
+            background: rgba(0,0,0,0.6);
+            padding: 5px 12px;
+            border-radius: 4px;
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+        .channel-name {
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        .video-overlay h3 {
+            color: white;
+            font-size: 0.85rem;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 400;
+            margin-top: 5px;
+        }
+        .play-button {
+            width: 70px; height: 70px;
+            background: rgba(255,0,0,0.9);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+            z-index: 3;
+            position: relative;
+            box-shadow: 0 5px 20px rgba(255,0,0,0.4);
+            transition: all 0.3s;
+        }
+        .play-button:hover { transform: scale(1.1); }
+        .play-button i { color: white; font-size: 1.5rem; margin-left: 5px; }
+        .tv-branding {
+            position: absolute;
+            bottom: 50px;
+            z-index: 3;
+            text-align: center;
+        }
+        .tv-branding h2 {
+            color: white;
+            font-size: 1.8rem;
+            letter-spacing: 4px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        }
+        .tv-branding p {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            margin-top: 5px;
+        }
+        .video-controls {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            background: rgba(0,0,0,0.7);
+            padding: 10px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 3;
+        }
+        .control-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin-right: 15px;
+            opacity: 0.8;
+        }
+        .watch-youtube {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: white;
+            font-size: 0.8rem;
+            padding: 5px 10px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+        }
+        .watch-youtube i { color: #ff0000; font-size: 1.2rem; }
+        .tv-info { animation: fadeInUp 1s ease; }
+        .tv-title {
+            font-size: 1.8rem;
+            color: white;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+        .tv-info .title-underline { margin: 0 0 25px 0; }
+        .tv-description {
+            color: rgba(255,255,255,0.85);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        .tv-email {
+            color: rgba(255,255,255,0.75);
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+        }
+        .tv-email i { color: var(--accent-gold); margin-right: 8px; }
+        .tv-actions {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+        .btn-tv {
+            display: inline-block;
+            padding: 14px 35px;
+            background: var(--primary-medium);
+            color: white;
+            border: 2px solid var(--primary-medium);
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+        }
+        .btn-tv:hover {
+            background: transparent;
+            border-color: white;
+            transform: translateY(-3px);
+        }
+        .social-icons { display: flex; gap: 15px; }
+        .social-icon {
+            width: 42px; height: 42px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            border: 2px solid rgba(255,255,255,0.3);
+            color: white;
+            font-size: 1.1rem;
+        }
+        .social-icon:hover { transform: translateY(-3px) scale(1.1); }
+        .social-icon.youtube:hover { background: #ff0000; border-color: #ff0000; }
+        .social-icon.instagram:hover {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            border-color: transparent;
+        }
+        .social-icon.tiktok:hover { background: #000; border-color: #000; }
+
+        /* FOOTER */
+        .main-footer {
+            background: linear-gradient(180deg, #4a6b7a, #3d5a6e);
+            color: white;
+            padding: 60px 20px 0;
+            position: relative;
+        }
+        .main-footer::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-gold), var(--primary-light), var(--accent-gold));
+        }
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 50px;
+            padding-bottom: 40px;
+        }
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        .footer-underline {
+            width: 40px; height: 2px;
+            background: var(--accent-gold);
+            margin-bottom: 20px;
+        }
+        .footer-column p {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            opacity: 0.85;
+        }
+        .read-more {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--accent-gold);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .contact-list { list-style: none; }
+        .contact-list li {
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            opacity: 0.85;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        .contact-list i {
+            color: var(--accent-gold);
+            margin-top: 4px;
+            width: 16px;
+        }
+        .subscribe-form { display: flex; flex-direction: column; gap: 12px; }
+        .subscribe-form input {
+            padding: 14px 18px;
+            border: 2px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.1);
+            border-radius: 6px;
+            color: white;
+            font-size: 0.9rem;
+        }
+        .subscribe-form input::placeholder { color: rgba(255,255,255,0.5); }
+        .subscribe-form input:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+        }
+        .subscribe-form button {
+            padding: 14px 25px;
+            background: rgba(255,255,255,0.15);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            letter-spacing: 1px;
+        }
+        .subscribe-form button:hover {
+            background: var(--accent-gold);
+            border-color: var(--accent-gold);
+            color: var(--primary-dark);
+        }
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 30px 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .footer-social-icon {
+            width: 45px; height: 45px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            border: 2px solid rgba(255,255,255,0.3);
+            color: white;
+            font-size: 1.2rem;
+        }
+        .footer-social-icon:hover {
+            transform: translateY(-3px) scale(1.1);
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+        .footer-bottom {
+            text-align: center;
+            padding: 20px 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .footer-bottom p { font-size: 0.85rem; opacity: 0.7; }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px; right: 30px;
+            width: 50px; height: 50px;
+            background: var(--primary-dark);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            z-index: 999;
+        }
+        .back-to-top.visible { display: flex; }
+        .back-to-top:hover {
+            background: var(--accent-gold);
+            transform: translateY(-3px);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .header-container { flex-direction: column; text-align: center; }
+            .header-info { text-align: center; }
+            .content-container { grid-template-columns: 1fr 1fr; }
+            .vituo-card { grid-column: 1 / -1; }
+            .tv-container { grid-template-columns: 1fr; gap: 40px; }
+            .footer-container { grid-template-columns: 1fr 1fr; }
+            .subscribe-column { grid-column: 1 / -1; }
+        }
+        @media (max-width: 768px) {
+            .logo-text h1 { font-size: 1.3rem; }
+            .contact-bar .separator { display: none; }
+            .contact-bar span { display: block; margin: 3px 0; }
+            .mobile-toggle { display: block; }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background: white;
+                position: absolute;
+                top: 100%; left: 0; right: 0;
+                box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            }
+            .nav-links.active { display: flex; }
+            .nav-links li + li::before { display: none; }
+            .content-container { grid-template-columns: 1fr; }
+            .vituo-card { grid-column: auto; }
+            .hero-content h2 { font-size: 1.8rem; }
+            .footer-container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP HEADER -->
+    <header class="top-header">
+        <div class="header-container">
+            <div class="logo-section">
+                <div class="logo-icon">
+                    <i class="fas fa-globe-africa"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>KANISA HALISI<br>LA MUUMBA</h1>
+                    <p class="location-text">Tegeta, Namanga, Kiwanja Na. 195</p>
+                </div>
+            </div>
+            <div class="header-info">
+                <div class="contact-bar">
+                    <span><i class="fas fa-envelope"></i> BARUA PEPE: kanisahalisi@gmail.com</span>
+                    <span class="separator">|</span>
+                    <span><i class="fas fa-map-marker-alt"></i> S.L.P 33070 DSM</span>
+                    <span class="separator">|</span>
+                    <span><i class="fas fa-phone"></i> Simu: +255 (0) 719 341 327</span>
+                </div>
+                <p class="tagline">"Heri uliyekombolewa na CHANZO HALISI!"</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- NAVIGATION -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <button class="mobile-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i> MENU
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#nyumbani">NYUMBANI</a></li>
+                <li><a href="#mikutano">MIKUTANO YA JAMII</a></li>
+                <li><a href="#nyimbo">NYIMBO ZETU</a></li>
+                <li><a href="#machapisho">MACHAPISHO</a></li>
+                <li><a href="#mnara">MNARA WA SAUTI</a></li>
+                <li><a href="#vituo">VITUO VYETU</a></li>
+                <li><a href="#kuhusu" class="active">KUHUSU SISI</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero-section" id="nyumbani">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h2>Karibu Kanisa Halisi La Muumba</h2>
+            <p>"Heri Uliyebarikiwa na CHANZO HALISI!"</p>
+            <a href="#kuhusu" class="hero-btn">Jifunze Zaidi</a>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <section class="main-content">
+        <div class="content-container">
+            <!-- Salaam -->
+            <div class="content-card">
+                <h2 class="section-title">Salaam ya Kanisa</h2>
+                <div class="title-underline"></div>
+                <p class="greeting-text"><em>"Heri Uliyebarikiwa na CHANZO HALISI!"</em></p>
+                <p class="greeting-text"><em>"Heri".</em></p>
+                <div class="map-placeholder">
+                    <i class="fas fa-map-marker-alt map-marker"></i>
+                    <div class="map-overlay-info">
+                        <h4>KANISA HALISI LA MUNGU BABA</h4>
+                        <a href="#" class="directions-link">Directions</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ratiba -->
+            <div class="content-card">
+                <h2 class="section-title">Ratiba za Ibada</h2>
+                <div class="title-underline"></div>
+                <div class="schedule-content">
+                    <div class="schedule-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <p>Tuna ibada kila lango (siku) katikati ya wiki kuanzia saa 11 Alfajiri mpaka 12 Asubuhi</p>
+                    </div>
+                    <div class="schedule-item">
+                        <i class="fas fa-calendar-day"></i>
+                        <p>Lango la moyo mmoja (jumapili) tuna ibada kuanzia saa 11 alfajiri mpaka saa 5 asubuhi</p>
+                    </div>
+                    <div class="schedule-item highlight">
+                        <i class="fas fa-hand-holding-heart"></i>
+                        <p>Uponyaji ni muda wote unapatikana, Watekeleza Sauti (Makuhani) wapo kukuhudumia muda wote BURE.</p>
+                    </div>
+                </div>
+                <h3 class="sub-title">ANUANI</h3>
+                <div class="title-underline" style="width:40px;margin-bottom:20px;"></div>
+                <div class="address-info">
+                    <p><i class="fas fa-map-marker-alt"></i> Tegeta, Namanga</p>
+                    <p><i class="fas fa-mailbox"></i> P.o.box 33070 Dar es salaam</p>
+                    <p><i class="fas fa-phone"></i> Simu: 0719 341 327</p>
+                    <p><i class="fas fa-envelope"></i> kanisahalisi@gmail.com</p>
+                </div>
+            </div>
+
+            <!-- Vituo -->
+            <div class="content-card vituo-card">
+                <h2 class="section-title">Vituo Vyetu</h2>
+                <div class="title-underline"></div>
+                <p class="vituo-text">
+                    Tuna vituo vya Kanisa katika kila mkoa hadi kitongoji na pia tuna vituo kwenye mataifa ya nje (Kenya, Uganda, Malawi, Rwanda, Burundi, Congo, Msumbiji na Zambia) kwa maelezo zaidi kuhusu namba na mahali kituo kilipo popote:-
+                </p>
+                <div style="text-align:center;">
+                    <a href="#" class="btn-primary">Bonyeza hapa</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-tagline">
+            <p>"Heri uliyebarikiwa na CHANZO HALISI!"</p>
+        </div>
+    </section>
+
+    <!-- TV SECTION -->
+    <section class="tv-section" id="mnara">
+        <div class="tv-container">
+            <div class="video-wrapper">
+                <div class="video-placeholder">
+                    <div class="video-overlay">
+                        <div class="channel-badge">
+                            <span class="channel-name">CHANZO HALISI TV</span>
+                        </div>
+                        <h3>KARIBU CHANZO HALISI TV - Usisahau ku - subs</h3>
+                    </div>
+                    <div class="play-button" id="playButton">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <div class="tv-branding">
+                        <h2>CHANZO HALISI TV</h2>
+                        <p>KANISA HALISI - ONLINE TV</p>
+                    </div>
+                    <div class="video-controls">
+                        <div>
+                            <button class="control-btn"><i class="fas fa-share"></i></button>
+                            <button class="control-btn"><i class="fas fa-clock"></i></button>
+                        </div>
+                        <a href="#" class="watch-youtube">
+                            <span>Watch on</span>
+                            <i class="fab fa-youtube"></i>
+                            <span>YouTube</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="tv-info">
+                <h2 class="tv-title">CHANZO HALISI TV</h2>
+                <div class="title-underline"></div>
+                <p class="tv-description">
+                    Tembelea Youtube Channel yetu ili kuangalia Ibada mbali mbali na uzidi kufahamu na Kumpokea MUUMBA aliye kuja Juu ya nchi kwa ajili ya Kukugeuzia Uteka wako, Kukufutia Laana na Kukusamehe Bure,
+                </p>
+                <p class="tv-email">
+                    <i class="fas fa-envelope"></i> E-mail: chanzohalisi@gmail.com
+                </p>
+                <div class="tv-actions">
+                    <a href="#" class="btn-tv">CHANZO HALISI TV</a>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon youtube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon tiktok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="main-footer" id="kuhusu">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Kuhusu sisi</h3>
+                <div class="footer-underline"></div>
+                <p>Kanisa Halisi la MUUMBA, linapatikana katika Mikoa yote ya Taifa la Tanzania na katika mataifa yote ya jirani (Kenya, Uganda, Malawi, Rwanda, Burundi, Congo, Msumbiji na Zambia)</p>
+                <a href="#" class="read-more">Read More →</a>
+            </div>
+            <div class="footer-column">
+                <h3>Mawasiliano</h3>
+                <div class="footer-underline"></div>
+                <ul class="contact-list">
+                    <li><i class="fas fa-phone"></i> Simu: +255 (0) 719 341 327</li>
+                    <li><i class="fas fa-mail-bulk"></i> S.L.P 33070 DSM (TZ)</li>
+                    <li><i class="fas fa-envelope"></i> kanisahalisi@gmail.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Kao Kuu ni Dar es salaam, Tegeta Namanga, Plot Na. 195</li>
+                </ul>
+            </div>
+            <div class="footer-column subscribe-column">
+                <h3>Jiandikishe</h3>
+                <div class="footer-underline"></div>
+                <form class="subscribe-form" id="subscribeForm">
+                    <input type="email" placeholder="Ingiza Barua Pepe yako (Email)" required>
+                    <button type="submit">Subscribe Now</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-social">
+            <a href="#" class="footer-social-icon"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="footer-social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="footer-social-icon"><i class="fab fa-tiktok"></i></a>
+        </div>
+        <div class="footer-bottom">
+            <p>Majira Moja Halisi © 2026 Ofisi ya Mawasiliano - Kanisa Halisi la MUUMBA.</p>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script>
+        // Mobile nav toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Active nav link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Back to top
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) backToTop.classList.add('visible');
+            else backToTop.classList.remove('visible');
+        });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Subscribe form
+        document.getElementById('subscribeForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button');
+            const originalText = btn.textContent;
+            btn.textContent = 'Asante! ✓';
+            btn.style.background = '#27ae60';
+            btn.style.borderColor = '#27ae60';
+            this.querySelector('input').value = '';
+            setTimeout(() => {
+                btn.textContent = originalText;
+                btn.style.background = '';
+                btn.style.borderColor = '';
+            }, 3000);
+        });
+
+        // Play button
+        document.getElementById('playButton').addEventListener('click', () => {
+            alert('🎬 Itafungua YouTube Channel: CHANZO HALISI TV');
+        });
+
+        console.log('%c🙏 Kanisa Halisi La Muumba', 'color:#1a3a5c;font-size:20px;font-weight:bold;');
+        console.log('%c"Heri uliyebarikiwa na CHANZO HALISI!"', 'color:#c9a84c;font-style:italic;');
+    </script>
+</body>
+</html>

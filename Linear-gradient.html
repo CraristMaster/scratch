@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradient Showcase</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at top, #0d3b66, #062639 45%, #020b12 100%);
+            color: #f8f8ff;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .card {
+            width: min(92vw, 520px);
+            padding: 36px 32px;
+            border-radius: 28px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.06));
+            box-shadow: 0 28px 70px rgba(0, 0, 0, 0.28);
+            backdrop-filter: blur(12px);
+            text-align: center;
+        }
+
+        .card h1 {
+            font-size: 2rem;
+            margin-bottom: 14px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .card p {
+            font-size: 1rem;
+            line-height: 1.75;
+            color: #dce7ff;
+        }
+
+        .accent {
+            display: inline-block;
+            margin-top: 22px;
+            padding: 10px 20px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, #2ec4b6, #72d6ff);
+            color: #031424;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+    </style>
+</head>
+<body>
+    <section class="card">
+        <h1>Gradient Horizon</h1>
+        <p>Experience a smooth oceanic theme with a modern glass-style card and a tranquil radial background.</p>
+        <span class="accent">Linear Gradient</span>
+    </section>
+</body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Density & Temperature Converter</title>
+  <style>
+    :root {
+      --bg: #f4f7ff;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --accent: #4f46e5;
+      --border: #d1d5db;
+      --success: #10b981;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: radial-gradient(circle at top left, rgba(79,70,229,.12), transparent 35%),
+                  radial-gradient(circle at bottom right, rgba(16,185,129,.12), transparent 30%),
+                  var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 2.75rem);
+    }
+
+    header p {
+      margin: 12px auto 0;
+      max-width: 760px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .grid {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.06);
+      padding: 22px;
+    }
+
+    .card h2 {
+      margin: 0 0 14px;
+      font-size: 1.25rem;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      margin-bottom: 18px;
+    }
+
+    label {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    input {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-size: 1rem;
+      background: #f9fafb;
+      transition: border-color .2s ease;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: var(--accent);
+      background: #fff;
+    }
+
+    button {
+      border: none;
+      background: var(--accent);
+      color: white;
+      padding: 12px 18px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: transform .2s ease, background .2s ease;
+    }
+
+    button:hover {
+      background: #4338ca;
+      transform: translateY(-1px);
+    }
+
+    .result {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: #eff6ff;
+      color: var(--text);
+      border: 1px solid transparent;
+    }
+
+    .result strong {
+      color: var(--success);
+    }
+
+    .strategy {
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    .strategy ol {
+      margin: 12px 0 0;
+      padding-left: 20px;
+    }
+
+    .strategy li {
+      margin-bottom: 10px;
+    }
+
+    footer {
+      margin-top: 24px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>Density & Temperature Converter</h1>
+      <p>Use this simple HTML, CSS, and JavaScript program to calculate density, convert Celsius to Fahrenheit or Kelvin, and learn a basic programming strategy for solving any problem.</p>
+    </header>
+
+    <div class="grid">
+      <section class="card">
+        <h2>Density Calculator</h2>
+        <div class="field">
+          <label for="mass">Mass (kg)</label>
+          <input id="mass" type="number" placeholder="Enter mass" step="any" />
+        </div>
+        <div class="field">
+          <label for="volume">Volume (m³)</label>
+          <input id="volume" type="number" placeholder="Enter volume" step="any" />
+        </div>
+        <button id="densityBtn">Calculate Density</button>
+        <div id="densityResult" class="result">Density result will appear here.</div>
+      </section>
+
+      <section class="card">
+        <h2>Temperature Converter</h2>
+        <div class="field">
+          <label for="celsius">Celsius (°C)</label>
+          <input id="celsius" type="number" placeholder="Enter Celsius" step="any" />
+        </div>
+        <button id="tempBtn">Convert Temperature</button>
+        <div id="tempResult" class="result">Temperature result will appear here.</div>
+      </section>
+
+      <section class="card">
+        <h2>Programming Strategy</h2>
+        <div class="strategy">
+          <p>Any programmer can solve problems by following a simple strategy. Use these steps whenever you define a new program:</p>
+          <ol>
+            <li><strong>Understand the problem:</strong> Read the requirements and decide what inputs and outputs are needed.</li>
+            <li><strong>Break it down:</strong> Divide the program into small tasks like "read number", "compute", and "show result."</li>
+            <li><strong>Write the logic:</strong> Use formulas and simple code to compute the answer.</li>
+            <li><strong>Test it:</strong> Try sample values and verify the output is correct.</li>
+            <li><strong>Improve:</strong> Make the interface clearer and handle invalid or missing values.</li>
+          </ol>
+          <p>For this tool:</p>
+          <ul>
+            <li>Density = mass ÷ volume</li>
+            <li>Fahrenheit = Celsius × 9/5 + 32</li>
+            <li>Kelvin = Celsius + 273.15</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      Built with HTML, CSS, and JavaScript.
+    </footer>
+  </div>
+
+  <script>
+    const densityBtn = document.getElementById('densityBtn');
+    const tempBtn = document.getElementById('tempBtn');
+    const densityResult = document.getElementById('densityResult');
+    const tempResult = document.getElementById('tempResult');
+
+    densityBtn.addEventListener('click', () => {
+      const mass = parseFloat(document.getElementById('mass').value);
+      const volume = parseFloat(document.getElementById('volume').value);
+
+      if (Number.isNaN(mass) || Number.isNaN(volume)) {
+        densityResult.textContent = 'Please enter valid numbers for mass and volume.';
+        return;
+      }
+
+      if (volume === 0) {
+        densityResult.textContent = 'Volume cannot be zero.';
+        return;
+      }
+
+      const density = mass / volume;
+      densityResult.innerHTML = `Density = <strong>${density.toFixed(3)}</strong> kg/m³`;
+    });
+
+    tempBtn.addEventListener('click', () => {
+      const celsius = parseFloat(document.getElementById('celsius').value);
+
+      if (Number.isNaN(celsius)) {
+        tempResult.textContent = 'Please enter a valid Celsius value.';
+        return;
+      }
+
+      const fahrenheit = celsius * 9 / 5 + 32;
+      const kelvin = celsius + 273.15;
+
+      tempResult.innerHTML = `Fahrenheit = <strong>${fahrenheit.toFixed(2)}°F</strong><br>Kelvin = <strong>${kelvin.toFixed(2)} K</strong>`;
+    });
+  </script>
+</body>
+</html>

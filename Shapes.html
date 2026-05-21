@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glass Shapes Gallery</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            letter-spacing: 1px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .shape-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .shape-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .shape-card:hover::before {
+            left: 100%;
+        }
+
+        .shape-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .shape-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .shape-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+            margin-bottom: 20px;
+        }
+
+        /* Triangle */
+        .triangle {
+            width: 0;
+            height: 0;
+            border-left: 60px solid transparent;
+            border-right: 60px solid transparent;
+            border-bottom: 120px solid rgba(255, 0, 0, 0.8);
+            filter: drop-shadow(0 4px 8px rgba(255, 0, 0, 0.3));
+            transition: all 0.3s ease;
+        }
+
+        .triangle:hover {
+            border-bottom-color: rgba(255, 0, 0, 1);
+            transform: scale(1.1);
+        }
+
+        /* Circle */
+        .circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(0, 123, 255, 0.8), rgba(0, 255, 255, 0.8));
+            box-shadow: 0 8px 32px rgba(0, 123, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .circle:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 12px 40px rgba(0, 123, 255, 0.4);
+        }
+
+        /* Square */
+        .square {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, rgba(40, 167, 69, 0.8), rgba(34, 197, 94, 0.8));
+            box-shadow: 0 8px 32px rgba(40, 167, 69, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .square:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 12px 40px rgba(40, 167, 69, 0.4);
+        }
+
+        /* Rectangle */
+        .rectangle {
+            width: 160px;
+            height: 80px;
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.8), rgba(255, 235, 59, 0.8));
+            border-radius: 10px;
+            box-shadow: 0 8px 32px rgba(255, 193, 7, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .rectangle:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 12px 40px rgba(255, 193, 7, 0.4);
+        }
+
+        /* Pentagon */
+        .pentagon {
+            width: 0;
+            height: 0;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            border-bottom: 52px solid rgba(156, 39, 176, 0.8);
+            position: relative;
+            box-shadow: 0 8px 32px rgba(156, 39, 176, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .pentagon::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            border-top: 52px solid rgba(156, 39, 176, 0.8);
+            top: 52px;
+            left: -30px;
+        }
+
+        .pentagon:hover {
+            transform: scale(1.1);
+            filter: drop-shadow(0 8px 16px rgba(156, 39, 176, 0.4));
+        }
+
+        /* Hexagon */
+        .hexagon {
+            width: 104px;
+            height: 60px;
+            background: rgba(220, 53, 69, 0.8);
+            position: relative;
+            box-shadow: 0 8px 32px rgba(220, 53, 69, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .hexagon::before,
+        .hexagon::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 52px solid transparent;
+            border-right: 52px solid transparent;
+            left: 0;
+        }
+
+        .hexagon::before {
+            bottom: 100%;
+            border-bottom: 30px solid rgba(220, 53, 69, 0.8);
+        }
+
+        .hexagon::after {
+            top: 100%;
+            border-top: 30px solid rgba(220, 53, 69, 0.8);
+        }
+
+        .hexagon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 40px rgba(220, 53, 69, 0.4);
+        }
+
+        /* Star */
+        .star {
+            position: relative;
+            width: 0;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 81px solid rgba(255, 140, 0, 0.8);
+            transform: rotate(35deg);
+            box-shadow: 0 8px 32px rgba(255, 140, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .star::before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 81px solid rgba(255, 140, 0, 0.8);
+            transform: rotate(-70deg);
+            top: -46px;
+            left: -50px;
+        }
+
+        .star::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 81px solid rgba(255, 140, 0, 0.8);
+            transform: rotate(70deg);
+            top: -46px;
+            left: -50px;
+        }
+
+        .star:hover {
+            transform: rotate(35deg) scale(1.1);
+            filter: drop-shadow(0 8px 16px rgba(255, 140, 0, 0.4));
+        }
+
+        /* Heart */
+        .heart {
+            position: relative;
+            width: 100px;
+            height: 90px;
+            background: rgba(220, 20, 60, 0.8);
+            transform: rotate(-45deg);
+            box-shadow: 0 8px 32px rgba(220, 20, 60, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 90px;
+            background: rgba(220, 20, 60, 0.8);
+            border-radius: 50px 50px 0 0;
+        }
+
+        .heart::before {
+            top: -50px;
+            left: 0;
+        }
+
+        .heart::after {
+            left: 50px;
+            top: 0;
+        }
+
+        .heart:hover {
+            transform: rotate(-45deg) scale(1.1);
+            box-shadow: 0 12px 40px rgba(220, 20, 60, 0.4);
+        }
+
+        /* Diamond */
+        .diamond {
+            width: 100px;
+            height: 100px;
+            background: rgba(75, 0, 130, 0.8);
+            transform: rotate(45deg);
+            box-shadow: 0 8px 32px rgba(75, 0, 130, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .diamond:hover {
+            transform: rotate(45deg) scale(1.1);
+            box-shadow: 0 12px 40px rgba(75, 0, 130, 0.4);
+        }
+
+        .shape-description {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            line-height: 1.4;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .container {
+                grid-template-columns: 1fr;
+                padding: 20px 10px;
+            }
+
+            .shape-card {
+                padding: 20px;
+            }
+
+            .shape-container {
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Glass Shapes Gallery</h1>
+        <p>Explore beautiful geometric shapes with glassmorphism effects</p>
+    </header>
+
+    <div class="container">
+        <div class="shape-card">
+            <h2 class="shape-name">Triangle</h2>
+            <div class="shape-container">
+                <div class="triangle"></div>
+            </div>
+            <p class="shape-description">A three-sided polygon with glass-like transparency and glowing red edges.</p>
+        </div>
+
+        <div class="shape-card">
+            <h2 class="shape-name">Circle</h2>
+            <div class="shape-container">
+                <div class="circle"></div>
+            </div>
+            <p class="shape-description">A perfect round shape with a blue gradient and frosted glass appearance.</p>
+        </div>
+
+        <div class="shape-card">
+            <h2 class="shape-name">Square</h2>
+            <div class="shape-container">
+                <div class="square"></div>
+            </div>
+            <p class="shape-description">A four-sided polygon with equal sides and green gradient effects.</p>
+        </div>
+
+        <div class="shape-card">
+            <h2 class="shape-name">Rectangle</h2>
+            <div class="shape-container">
+                <div class="rectangle"></div>
+            </div>
+            <p class="shape-description">An elongated square with golden yellow tones and subtle curves.</p>
+        </div>
+
+        <div class="shape-card">
+            <h2 class="shape-name">Pentagon</h2>
+            <div class="shape-container">
+                <div class="pentagon"></div>
+            </div>
+            <p class="shape-description">A five-sided shape with purple hues and complex geometric structure.</p>
+        </div>
+
+        <div class="shape-card">
+            <h2 class="shape-name">Hexagon</h2>
+            <div class="shape-container">
+                <div class="hexagon"></div>
+            </div>
+            <p class="shape-description">A six-sided polygon resembling a honeycomb with red transparency.</p>
+        </div>
+
+        <div class="shape-card">
+            <h2 class="shape-name">Star</h2>
+            <div class="shape-container">
+                <div class="star"></div>
+            </div>
+            <p class="shape-description">A five-pointed star with orange glow and intricate layered design.</p>
+        </div>
+
+        <div class="shape-card">
+            <h2 class="shape-name">Heart</h2>
+            <div class="shape-container">
+                <div class="heart"></div>
+            </div>
+            <p class="shape-description">A classic heart shape with crimson red and emotional symbolism.</p>
+        </div>
+
+        <div class="shape-card">
+            <h2 class="shape-name">Diamond</h2>
+            <div class="shape-container">
+                <div class="diamond"></div>
+            </div>
+            <p class="shape-description">A rotated square creating a diamond shape with indigo blue tones.</p>
+        </div>
+    </div>
+</body>
+</html>
