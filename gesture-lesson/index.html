@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gesture Math + Programming Tutor</title>
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- MediaPipe Hands (gesture recognition) -->
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.min.js"></script>
+</head>
+
+<body>
+  <div class="app">
+    <header>
+      <h1>Gesture Tutor: Math + Programming</h1>
+      <p>Use hand gestures to control the quiz. Show <b>0–5 fingers</b> in view.</p>
+    </header>
+
+    <main class="grid">
+      <section class="card">
+        <h2>Gesture / Camera</h2>
+        <div class="videoWrap">
+          <video id="video" playsinline muted></video>
+          <canvas id="canvas"></canvas>
+        </div>
+        <div class="status">
+          <div><b>Detected Fingers:</b> <span id="fingers">-</span></div>
+          <div><b>Mode:</b> <span id="mode">Math</span></div>
+          <div><b>Hint:</b> <span id="hint">Show fingers for commands/answers</span></div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Lesson</h2>
+        <div class="questionBox">
+          <div class="small" id="topicLine">Topic: Addition</div>
+          <div class="question" id="questionText">Loading...</div>
+        </div>
+
+        <div class="answers">
+          <button class="answer" id="ans0">A: -</button>
+          <button class="answer" id="ans1">B: -</button>
+          <button class="answer" id="ans2">C: -</button>
+          <button class="answer" id="ans3">D: -</button>
+        </div>
+
+        <div class="controls">
+          <div class="controlNote">
+            <b>Gesture mapping:</b><br/>
+            <ul>
+              <li><b>0 fingers</b> = Next question</li>
+              <li><b>1–4 fingers</b> = Choose answer A–D</li>
+              <li><b>5 fingers</b> = Switch mode (Math / Programming)</li>
+            </ul>
+          </div>
+          <div class="result" id="resultText">Waiting for your gesture...</div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="muted">
+        Uses simple adaptive learning + PHP progress saving. No AI model is required.
+      </div>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
